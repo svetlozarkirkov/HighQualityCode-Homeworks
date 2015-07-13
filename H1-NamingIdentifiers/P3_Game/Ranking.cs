@@ -1,45 +1,19 @@
 ﻿namespace Application2
 {
-    public class zaKlasiraneto
+    public class Ranking
     {
-        private string name;
+        public string Player { get; set; }
 
-        private int points;
+        public int Points { get; set; }
 
-        public string igra4
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
-
-        public int kolko
-        {
-            get
-            {
-                return points;
-            }
-
-            set
-            {
-                points = value;
-            }
-        }
-
-        public zaKlasiraneto()
+        public Ranking()
         {
         }
 
-        public zaKlasiraneto(string име, int то4ки)
+        public Ranking(string name, int points)
         {
-            this.name = име;
-            this.points = то4ки;
+            this.Player = name;
+            this.Points = points;
         }
     }
 }
