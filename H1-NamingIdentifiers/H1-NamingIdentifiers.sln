@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1_UnknownMethod", "ConsoleApplication1\P1_UnknownMethod.csproj", "{F93E5A43-0119-4961-B21C-BDF4A1FBE9AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1_UnknownMethod", "P1_UnknownMethod\P1_UnknownMethod.csproj", "{F93E5A43-0119-4961-B21C-BDF4A1FBE9AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2_LinqQueries", "Orders\P2_LinqQueries.csproj", "{32FFFB9D-C7B7-4D0B-9392-231F62595912}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2_LinqQueries", "P2_LinqQueries\P2_LinqQueries.csproj", "{32FFFB9D-C7B7-4D0B-9392-231F62595912}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P3_Game", "Application2\P3_Game.csproj", "{E2B7BED8-5433-40ED-9870-4E775782E5ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P3_Game", "P3_Game\P3_Game.csproj", "{E2B7BED8-5433-40ED-9870-4E775782E5ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
