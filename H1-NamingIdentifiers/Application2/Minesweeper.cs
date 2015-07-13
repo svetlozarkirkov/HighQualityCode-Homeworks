@@ -1,55 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace mini4ki
+namespace Application2
 {
     public class Minesweeper
     {
-        public class zaKlasiraneto
-        {
-            private string name;
-
-            private int points;
-
-            public string igra4
-            {
-                get
-                {
-                    return name;
-                }
-
-                set
-                {
-                    name = value;
-                }
-            }
-
-            public int kolko
-            {
-                get
-                {
-                    return points;
-                }
-
-                set
-                {
-                    points = value;
-                }
-            }
-
-            public zaKlasiraneto()
-            {
-            }
-
-            public zaKlasiraneto(string име, int то4ки)
-            {
-                this.name = име;
-                this.points = то4ки;
-            }
-        }
-
         private static void Main(string[] аргументи)
         {
             string command = string.Empty;

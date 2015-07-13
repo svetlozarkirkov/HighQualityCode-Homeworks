@@ -25,46 +25,46 @@
 
         public IEnumerable<Category> GetAllCategories()
         {
-            var cat = ReadFileLines(this.categoriesFileName, true);
-            
-            return cat
-                .Select(c => c.Split(','))
-                .Select(c => new Category
+            var categories = ReadFileLines(this.categoriesFileName, true);
+
+            return categories
+                .Select(categoryLine => categoryLine.Split(','))
+                .Select(categoryLine => new Category
                 {
-                    Id = int.Parse(c[0]),
-                    Name = c[1],
-                    Description = c[2]
+                    Id = int.Parse(categoryLine[0]),
+                    Name = categoryLine[1],
+                    Description = categoryLine[2]
                 });
         }
 
         public IEnumerable<Product> GetAllProducts()
         {
-            var prod = ReadFileLines(this.productsFileName, true);
-            
-            return prod
-                .Select(p => p.Split(','))
-                .Select(p => new Product
+            var products = ReadFileLines(this.productsFileName, true);
+
+            return products
+                .Select(productLine => productLine.Split(','))
+                .Select(productLine => new Product
                 {
-                    Id = int.Parse(p[0]),
-                    Name = p[1],
-                    CategoryId = int.Parse(p[2]),
-                    UnitPrice = decimal.Parse(p[3]),
-                    UnitsInStock = int.Parse(p[4])
+                    Id = int.Parse(productLine[0]),
+                    Name = productLine[1],
+                    CategoryId = int.Parse(productLine[2]),
+                    UnitPrice = decimal.Parse(productLine[3]),
+                    UnitsInStock = int.Parse(productLine[4])
                 });
         }
 
         public IEnumerable<Order> GetAllOrders()
         {
-            var ord = ReadFileLines(this.ordersFileName, true);
+            var orders = ReadFileLines(this.ordersFileName, true);
             
-            return ord
-                .Select(p => p.Split(','))
-                .Select(p => new Order
+            return orders
+                .Select(orderLine => orderLine.Split(','))
+                .Select(orderLine => new Order
                 {
-                    Id = int.Parse(p[0]),
-                    ProductId = int.Parse(p[1]),
-                    Quantity = int.Parse(p[2]),
-                    Discount = decimal.Parse(p[3]),
+                    Id = int.Parse(orderLine[0]),
+                    ProductId = int.Parse(orderLine[1]),
+                    Quantity = int.Parse(orderLine[2]),
+                    Discount = decimal.Parse(orderLine[3]),
                 });
         }
 
