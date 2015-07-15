@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1_StringExtensions", "P1_StringExtensions\P1_StringExtensions.csproj", "{9435B157-EFEC-4988-B66A-6F2C53A11323}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTunesShop", "P2_InterfacesDocumentation\MyTunesShop\MyTunesShop.csproj", "{8719EA82-DFF4-4154-9119-0AEBA2EF601B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTunesShop", "MyTunesShop\MyTunesShop.csproj", "{8719EA82-DFF4-4154-9119-0AEBA2EF601B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9435B157-EFEC-4988-B66A-6F2C53A11323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9435B157-EFEC-4988-B66A-6F2C53A11323}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9435B157-EFEC-4988-B66A-6F2C53A11323}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9435B157-EFEC-4988-B66A-6F2C53A11323}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8719EA82-DFF4-4154-9119-0AEBA2EF601B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8719EA82-DFF4-4154-9119-0AEBA2EF601B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8719EA82-DFF4-4154-9119-0AEBA2EF601B}.Release|Any CPU.ActiveCfg = Release|Any CPU

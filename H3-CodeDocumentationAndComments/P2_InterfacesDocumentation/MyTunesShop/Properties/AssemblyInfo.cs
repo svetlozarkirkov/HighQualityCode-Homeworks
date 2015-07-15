@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("P2_InterfacesDocumentation")]
+[assembly: AssemblyTitle("MyTunesShop")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("P2_InterfacesDocumentation")]
+[assembly: AssemblyProduct("MyTunesShop")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f4daef8c-9562-445d-8310-2630156c6640")]
+[assembly: Guid("392922f6-b9b0-42c0-ab4d-a7503a55e13c")]
 
 // Version information for an assembly consists of the following four values:
 //
