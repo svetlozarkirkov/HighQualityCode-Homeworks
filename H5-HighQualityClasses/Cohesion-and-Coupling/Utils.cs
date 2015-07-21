@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace CohesionAndCoupling
+﻿namespace CohesionAndCoupling
 {
-    static class Utils
+    using System;
+
+    public static class Utils
     {
-        public static double Width { get; set; }
-        public static double Height { get; set; }
-        public static double Depth { get; set; }
+        // public static double Width { get; set; }
+        
+        // public static double Height { get; set; }
+        
+        // public static double Depth { get; set; }
 
         public static string GetFileExtension(string fileName)
         {

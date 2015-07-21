@@ -2,50 +2,42 @@
 
 namespace Abstraction
 {
-    class Circle : Figure
+    public class Circle : IFigure
     {
-        public double Radius { get; set; }
-
-        public Circle()
-        {
-        }
+        private double radius;
 
         public Circle(double radius)
         {
             this.Radius = radius;
         }
 
-        public override double Width
+        public double Radius
         {
             get
             {
-                throw new NotImplementedException("Circle does not have Width");
+                return this.radius;
             }
+
             set
             {
-                throw new NotImplementedException("Circle does not have Width");
+                if (value > 0)
+                {
+                    this.radius = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Radius must be positive number.");
+                }
             }
         }
 
-        public override double Height
-        {
-            get
-            {
-                throw new NotImplementedException("Circle does not have Height");
-            }
-            set
-            {
-                throw new NotImplementedException("Circle does not have Height");
-            }
-        }
-
-        public double CalcPerimeter()
+        public double CalculatePerimeter()
         {
             double perimeter = 2 * Math.PI * this.Radius;
             return perimeter;
         }
 
-        public double CalcSurface()
+        public double CalculateSurface()
         {
             double surface = Math.PI * this.Radius * this.Radius;
             return surface;

@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace CohesionAndCoupling
+﻿namespace CohesionAndCoupling
 {
-    class UtilsExamples
+    using System;
+
+    public class UtilsExamples
     {
-        static void Main()
+        public static void Main()
         {
             Console.WriteLine(Utils.GetFileExtension("example"));
             Console.WriteLine(Utils.GetFileExtension("example.pdf"));
