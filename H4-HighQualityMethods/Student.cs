@@ -1,20 +1,29 @@
-﻿using System;
-
-namespace Methods
+﻿namespace Methods
 {
-    class Student
+    using System;
+
+    // No validations used for properties - the main method assumes they will be correct
+    public class Student
     {
+        public Student(string firstName, string lastName, string otherInfo, DateTime dateOfBirth)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.OtherInfo = otherInfo;
+            this.DateOfBirth = dateOfBirth;
+        }
+
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         public string OtherInfo { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
 
         public bool IsOlderThan(Student other)
         {
-            DateTime firstDate =
-                DateTime.Parse(this.OtherInfo.Substring(this.OtherInfo.Length - 10));
-            DateTime secondDate =
-                DateTime.Parse(other.OtherInfo.Substring(other.OtherInfo.Length - 10));
-            return firstDate > secondDate;
+            return this.DateOfBirth < other.DateOfBirth;
         }
     }
 }

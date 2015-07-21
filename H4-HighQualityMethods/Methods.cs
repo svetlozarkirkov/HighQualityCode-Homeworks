@@ -1,22 +1,75 @@
-﻿using System;
-
-namespace Methods
+﻿namespace Methods
 {
-    class Methods
+    using System;
+
+    public static class Methods
     {
-        static double CalcTriangleArea(double a, double b, double c)
+        public enum NumberFormat
         {
-            if (a <= 0 || b <= 0 || c <= 0)
+            Float,
+            Percent,
+            PaddedRight
+        }
+
+        public static void Main()
+        {
+            Console.WriteLine(CalculateTriangleArea(3, 4, 5));
+
+            Console.WriteLine(NumberToDigit(5));
+
+            int[] arr = { 5, -1, 3, 2, 14, 2, 3 };
+            Console.WriteLine(FindMax(arr));
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+
+            PrintFormattedNumber(1.3, NumberFormat.Float);
+            PrintFormattedNumber(0.75, NumberFormat.Percent);
+            PrintFormattedNumber(2.30, NumberFormat.PaddedRight);
+
+            double pointOneX = 3;
+            double pointOneY = -1;
+            double pointTwoX = 3;
+            double pointTwoY = 2.5;
+            Console.WriteLine("Distance: " + CalculateDistance(pointOneX, pointOneY, pointTwoX, pointTwoY));
+            Console.WriteLine("Horizontal? " + (pointOneX.Equals(pointTwoX)));
+            Console.WriteLine("Vertical? " + (pointOneY.Equals(pointTwoY)));
+
+            Student peter = new Student(
+                "Peter", 
+                "Ivanov", 
+                "From Sofia, born at 17.03.1992", 
+                new DateTime(1992, 03, 17));
+
+            Student stella = new Student(
+                "Stella",
+                "Markova",
+                "From Vidin, gamer, high results, born at 03.11.1993",
+                new DateTime(1993, 11, 03));
+
+            Console.WriteLine(
+                "{0} older than {1} -> {2}",
+                peter.FirstName, 
+                stella.FirstName, 
+                peter.IsOlderThan(stella));
+        }
+
+        public static double CalculateTriangleArea(double sideA, double sideB, double sideC)
+        {
+            bool hasInvalidSides = sideA <= 0 || sideB <= 0 || sideC <= 0;
+            
+            if (hasInvalidSides)
             {
-                Console.Error.WriteLine("Sides should be positive.");
-                return -1;
+                throw new ArgumentException("All sides should be positive.");
             }
-            double s = (a + b + c) / 2;
-            double area = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
+
+            double halfPerimeter = (sideA + sideB + sideC) / 2;
+            double area = Math.Sqrt(halfPerimeter * 
+                                    (halfPerimeter - sideA) * 
+                                    (halfPerimeter - sideB) * 
+                                    (halfPerimeter - sideC));
             return area;
         }
 
-        static string NumberToDigit(int number)
+        public static string NumberToDigit(int number)
         {
             switch (number)
             {
@@ -30,80 +83,58 @@ namespace Methods
                 case 7: return "seven";
                 case 8: return "eight";
                 case 9: return "nine";
+                default: throw new ArgumentException("Invalid number!");
             }
-
-            return "Invalid number!";
         }
 
-        static int FindMax(params int[] elements)
+        public static int FindMax(params int[] elements)
         {
             if (elements == null || elements.Length == 0)
             {
-                return -1;
+                throw new ArgumentException("The array is empty.");
             }
 
-            for (int i = 1; i < elements.Length; i++)
+            // Using a clone of the parameter so that the original array is not modified by this method
+            int[] elementsClone = (int[])elements.Clone();
+
+            for (int currentIndex = 1; currentIndex < elementsClone.Length; currentIndex++)
             {
-                if (elements[i] > elements[0])
+                if (elementsClone[currentIndex] > elementsClone[0])
                 {
-                    elements[0] = elements[i];
+                    elementsClone[0] = elementsClone[currentIndex];
                 }
             }
-            return elements[0];
+
+            return elementsClone[0];
         }
 
-        static void PrintAsNumber(object number, string format)
+        public static void PrintFormattedNumber(object number, NumberFormat format)
         {
-            if (format == "f")
+            switch (format)
             {
-                Console.WriteLine("{0:f2}", number);
-            }
-            if (format == "%")
-            {
-                Console.WriteLine("{0:p0}", number);
-            }
-            if (format == "r")
-            {
-                Console.WriteLine("{0,8}", number);
+                case NumberFormat.Float:
+                    Console.WriteLine("{0:f2}", number);
+                    break;
+                case NumberFormat.Percent:
+                    Console.WriteLine("{0:p0}", number);
+                    break;
+                case NumberFormat.PaddedRight:
+                    Console.WriteLine("{0,8}", number);
+                    break;
+                default:
+                    throw new ArgumentException("Invalid format!"); // should never happen
             }
         }
 
-
-        static double CalcDistance(double x1, double y1, double x2, double y2, 
-            out bool isHorizontal, out bool isVertical)
+        public static double CalculateDistance(
+            double pointOneX, double pointOneY, double pointTwoX, double pointTwoY)
         {
-            isHorizontal = (y1 == y2);
-            isVertical = (x1 == x2);
-
-            double distance = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            // Not using Math.Pow - simple multiplying is faster here
+            double distance = 
+                Math.Sqrt(((pointTwoX - pointOneX) * (pointTwoX - pointOneX)) + 
+                ((pointTwoY - pointOneY) * (pointTwoY - pointOneY)));
+            
             return distance;
-        }
-
-        static void Main()
-        {
-            Console.WriteLine(CalcTriangleArea(3, 4, 5));
-            
-            Console.WriteLine(NumberToDigit(5));
-            
-            Console.WriteLine(FindMax(5, -1, 3, 2, 14, 2, 3));
-            
-            PrintAsNumber(1.3, "f");
-            PrintAsNumber(0.75, "%");
-            PrintAsNumber(2.30, "r");
-
-            bool horizontal, vertical;
-            Console.WriteLine(CalcDistance(3, -1, 3, 2.5, out horizontal, out vertical));
-            Console.WriteLine("Horizontal? " + horizontal);
-            Console.WriteLine("Vertical? " + vertical);
-
-            Student peter = new Student() { FirstName = "Peter", LastName = "Ivanov" };
-            peter.OtherInfo = "From Sofia, born at 17.03.1992";
-
-            Student stella = new Student() { FirstName = "Stella", LastName = "Markova" };
-            stella.OtherInfo = "From Vidin, gamer, high results, born at 03.11.1993";
-
-            Console.WriteLine("{0} older than {1} -> {2}",
-                peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
         }
     }
 }
