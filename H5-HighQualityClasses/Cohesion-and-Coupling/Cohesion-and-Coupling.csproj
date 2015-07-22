@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DistanceCalculator.cs" />
+    <Compile Include="FileExtensions.cs" />
     <Compile Include="UtilsExamples.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="VolumeUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
