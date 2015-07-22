@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
-    class CoursesExamples
+    using System;
+    using System.Collections.Generic;
+    
+    public class CoursesExamples
     {
-        static void Main()
+        public static void Main()
         {
-            LocalCourse localCourse = new LocalCourse("Databases");
+            LocalCourse localCourse = new LocalCourse(
+                "Databases",
+                "Bill Gates",
+                new List<string> { "Tyrion", "Jon Snow" },
+                "Testov Lab");
             Console.WriteLine(localCourse);
 
             localCourse.Lab = "Enterprise";
             Console.WriteLine(localCourse);
 
-            localCourse.Students = new List<string>() { "Peter", "Maria" };
+            localCourse.Students = new List<string> { "Peter", "Maria" };
             Console.WriteLine(localCourse);
 
             localCourse.TeacherName = "Svetlin Nakov";
@@ -22,8 +26,10 @@ namespace InheritanceAndPolymorphism
             Console.WriteLine(localCourse);
 
             OffsiteCourse offsiteCourse = new OffsiteCourse(
-                "PHP and WordPress Development", "Mario Peshev", 
-                new List<string>() { "Thomas", "Ani", "Steve" });
+                "PHP and WordPress Development", 
+                "Mario Peshev", 
+                new List<string> { "Thomas", "Ani", "Steve" },
+                "Varna");
             Console.WriteLine(offsiteCourse);
         }
     }
