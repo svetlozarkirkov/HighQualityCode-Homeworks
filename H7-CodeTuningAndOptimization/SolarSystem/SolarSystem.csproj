@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrbitsCalculator.cs" />
+    <None Include="packages.config" />
+    <None Include="SolarSystemDiagram.cd" />
     <None Include="Images\off.design" />
     <None Include="Images\on.design" />
     <AppDesigner Include="Properties\" />

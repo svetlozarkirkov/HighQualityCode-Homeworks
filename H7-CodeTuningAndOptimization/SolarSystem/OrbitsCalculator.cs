@@ -12,6 +12,7 @@ namespace SolarSystem
 
         const double EarthYear = 365.25;
         const double EarthRotationPeriod = 1.0;
+        private const double EarthRotationStep = 360;
         const double SunRotationPeriod = 25.0;
         const double TwoPi = Math.PI * 2;
 
@@ -93,10 +94,7 @@ namespace SolarSystem
 
         private void EarthRotation()
         {
-			for (decimal step = 0; step <= 360; step+=0.00005m)
-			{
-				EarthRotationAngle = ((double)step) * Days / EarthRotationPeriod;
-			}
+            EarthRotationAngle = EarthRotationStep*Days/SunRotationPeriod;
             Update("EarthRotationAngle");
         }
 
